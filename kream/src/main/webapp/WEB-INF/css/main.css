@@ -1,0 +1,77 @@
+@charset "UTF-8";
+@import url('reset.css');
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+/* menu */
+.carousel_hr{
+    margin: 0 auto; /* 가운데 정렬을 원한다면 추가 */
+}
+.category {
+   display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    font-size:0.8em;
+}
+.filter {
+   float : left;
+   width : 170px;
+}
+.filternav{
+   clear:both;
+   text-decoration:none;
+}
+.filter p{
+   margin:0px 0px 10px 0px;
+   color: #005b9b;
+   font-family:'Nanum Gothic', sans-serif;
+   font-size:13px;
+   font-weight:bold;
+   color : black;
+}
+.filter ul{
+   margin-left:11px;
+}
+.filter ul a{
+   display:block;
+   padding-right: 14px;
+   color: #005b9b;
+   font-family:'Nanum Gothic', sans-serif;
+   font-size:14px;
+   font-weight:bold;
+   text-align:right;
+   text-decoration:none;
+   line-height:30px;
+}
+.filter ul a:hover{
+   color:#660000;
+   text-decoration:underline;
+}
+/* container start */
+#container {
+   padding-bottom: 20px;
+}
+#container:after{
+   content:'';
+   display:block;
+   clear:both;
+}
+.all_product_view {
+   display: flex;
+     justify-content: space-between;
+     letter-spacing:2px;
+     align-items: center;
+   display:none;
+}
+.all_product_view > div{
+   color:gray;
+   font-size:0.8em;
+   margin: 5px 5px 10px 0px;
+}
+.sub-items > div{
+   margin-left: 20px;
+   margin-bottom: 5px;
+}
+/* 체크박스 스타일 조정 */
+input[type="checkbox"] {
+    border-radius: 0%;
+    margin-right: 5px; 
+}

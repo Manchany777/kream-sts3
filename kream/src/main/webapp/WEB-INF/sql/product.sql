@@ -1,0 +1,26 @@
+CREATE TABLE product (
+   product_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   category VARCHAR(45) NOT NULL,
+   category2 VARCHAR(45) DEFAULT NULL,
+   brand VARCHAR(45) DEFAULT NULL,
+   productName VARCHAR(255) NOT NULL,
+   product_explain VARCHAR(100) NOT NULL,
+   product_detail VARCHAR(1000) DEFAULT NULL,
+   price INT NOT NULL,
+   stock INT NOT NULL,
+   product_color VARCHAR(45) DEFAULT NULL,
+   hit INT NOT NULL DEFAULT 0, -- 기본값 0으로 설정
+   createdDate DATETIME DEFAULT CURRENT_TIMESTAMP, -- 생성 시간 자동 설정
+   releaseDate DATE NOT NULL,
+   size VARCHAR(45) DEFAULT NULL,
+   product_img1 VARCHAR(1000) DEFAULT NULL,
+   product_img2 VARCHAR(1000) DEFAULT NULL,
+   product_img3 VARCHAR(1000) DEFAULT NULL,
+   product_img4 VARCHAR(1000) DEFAULT NULL,
+   product_img5 VARCHAR(1000) DEFAULT NULL,
+   product_img6 VARCHAR(1000) DEFAULT NULL,
+   product_img7 VARCHAR(1000) DEFAULT NULL,
+   product_img8 VARCHAR(1000) DEFAULT NULL,
+   product_img9 VARCHAR(1000) DEFAULT NULL,
+   product_img10 VARCHAR(1000) DEFAULT NULL
+);

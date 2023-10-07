@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminProductSQL">
+    <resultMap id="productResult" type="kream.bean.AdminProductDTO">
+        <result column="PRODUCTID" property="productId"/>
+        <result column="CATEGORY" property="category"/>
+        <result column="CATEGORY2" property="category2"/>
+        <result column="BRAND" property="brand"/>
+        <result column="PRODUCTNAME" property="productName"/>
+        <result column="PRODUCTEXPLAIN" property="product_explain"/>
+        <result column="PRODUCTDETAIL" property="product_detail"/>
+        <result column="PRICE" property="price"/>
+        <result column="STOCK" property="stock"/>
+        <result column="PRODUCTCOLOR" property="product_color"/>
+        <result column="HIT" property="hit"/>
+        <result column="CREATEDDATE" property="createdDate"/>
+        <result column="RELEASEDATE" property="releaseDate"/>
+        <result column="SIZE" property="size"/>
+        <result column="PRODUCTIMG1" property="productImg1"/>
+        <result column="PRODUCTIMG2" property="productImg2"/>
+        <result column="PRODUCTIMG3" property="productImg3"/>
+        <result column="PRODUCTIMG4" property="productImg4"/>
+        <result column="PRODUCTIMG5" property="productImg5"/>
+        <result column="PRODUCTIMG6" property="productImg6"/>
+        <result column="PRODUCTIMG7" property="productImg7"/>
+        <result column="PRODUCTIMG8" property="productImg8"/>
+        <result column="PRODUCTIMG9" property="productImg9"/>
+        <result column="PRODUCTIMG10" property="productImg10"/>
+    </resultMap>
+
+    <!-- 등록 -->
+	<insert id="upload" parameterType="product">
+	    <![CDATA[
+	    insert into product (
+	        category, category2, brand, productName, product_explain,
+	        product_detail, price, stock, product_color,
+	        hit, createdDate, releaseDate, size,
+	        product_img1, product_img2, product_img3, product_img4, product_img5,
+	        product_img6, product_img7, product_img8, product_img9, product_img10
+	    ) values (
+	        #{category}, #{category2}, #{brand}, #{productName},
+	        #{product_explain}, #{product_detail}, #{price}, 
+	        #{stock}, #{product_color}, #{hit}, CURRENT_TIMESTAMP, #{releaseDate}, #{size},
+	        #{productImg1}, #{productImg2}, #{productImg3}, #{productImg4}, #{productImg5},
+	        #{productImg6}, #{productImg7}, #{productImg8}, #{productImg9}, #{productImg10}
+	    )
+	    ]]>
+	</insert>
+
+
+    
+</mapper>
