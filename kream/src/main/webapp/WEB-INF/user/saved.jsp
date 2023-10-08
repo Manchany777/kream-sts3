@@ -5,177 +5,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>후기 댓글 조회</title>
-    <link rel="stylesheet" href="/kream/css/mypage/mypageMain.css" type="text/css">
+    <title>관심 상품</title>
     <link rel="stylesheet" href="/kream/css/mypage/mypageMain.css" type="text/css">
     <link rel="stylesheet" href="/kream/css/mypage/cd94494.css" type="text/css">
-    <link rel="stylesheet" href="/kream/css/efffbde.css" type="text/css">
-    <link rel="stylesheet" href="/kream/css/c9eea23.css" type="text/css">
+    <link rel="stylesheet" href="/kream/css/mypage/efffbde.css" type="text/css">
+    <link rel="stylesheet" href="/kream/css/mypage/c9eea23.css" type="text/css">
+<style type="text/css">
+li, ol, ul {
+    list-style: none;
+}
+a, a:active, a:focus, a:hover {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+    color: inherit;
+}
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    padding: 0;
+}
+
+
+.container.my .snb_area+div {
+    flex: 1;
+}
+.container.my .content_area {
+    min-height: 380px;
+    overflow: hidden;
+}
+.content_area {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+}
+.content_title {
+    display: flex;
+}
+.border {
+    border: none !important;
+}
+.content_title.border {
+    border-bottom: 3px solid #222 !important;
+    padding-bottom: 16px;
+}
+.my-page-content {
+    flex: 1;
+}
+
+.title {
+    font-size: 24px;
+    letter-spacing: -.36px;
+}
+.title>h3 {
+    font-size: inherit;
+    line-height: 29px;
+    font-weight: bold;
+}
+.wish_item {
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    gap: 8px;
+    padding: 20px 0 19px;
+}
+.wish_product {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+}
+.wish_product .product_box {
+    flex: none;
+    height: 80px;
+    width: 80px;
+}
+.product {
+    border-radius: 8px;
+    overflow: hidden;
+    padding-top: 100%;
+    position: relative;
+}
+.display_tag_item.product_inner_tag {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 600;
+    height: 26px;
+    justify-content: center;
+    left: 8px;
+    line-height: 17px;
+    position: absolute;
+    text-align: center;
+    top: 8px;
+    width: 26px;
+    z-index: 1;
+}
+.display_tag_item {
+    border-radius: 2px;
+    display: inline-flex;
+    font-size: 11px;
+    height: 20px;
+    margin-right: 4px;
+    padding: 4px;
+    position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+
+.image.full_width {
+    height: 100%;
+    width: 100%;
+}
+.image {
+    image-rendering: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+img, video {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    border: 0;
+    -webkit-user-select: none!important;
+    -moz-user-select: none!important;
+    user-select: none!important;
+    -webkit-user-select: none;
+    vertical-align: top;
+}
+.detail_stock .product_img, .is_exclusive .product_img, .lucky_draw_column .product_img, .other_stock .product_img, .product_img, .stock .product_img {
+    height: auto;
+    width: 100%;
+}
+.product_img {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.picture {
+    border: none;
+    display: flex;
+}
+.product:after {
+    background: transparent;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.product {
+    border-radius: 8px;
+    overflow: hidden;
+    padding-top: 100%;
+    position: relative;
+}
+.wish_product .product_box {
+    flex: none;
+    height: 80px;
+    width: 80px;
+}
+.product_detail {
+    display: flex;
+    flex-direction: column;
+    margin-left: 13px;
+    overflow: hidden;
+    text-align: left;
+}
+.brand-text {
+    color: #222;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    height: 17px;
+    line-height: 17px;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+[class*=brand-] {
+    height: 20px;
+    width: auto;
+}
+.product_detail .name {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    font-size: 13px;
+    letter-spacing: -.03px;
+    line-height: 18px;
+    margin-top: 2px;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    font-weight: normal;
+}
+.product_detail .size {
+    display: inline-flex;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-top: auto;
+}
+
+
+.wish_buy {
+    display: inline-flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-left: auto;
+    text-align: right;
+}
+.my_interest .division_btn_box {
+    margin-top: 0;
+    text-align: left;
+    width: 164px;
+}
+.division_btn_box {
+    display: flex;
+    height: 60px;
+}
+.blind, .u_skip {
+    clip: rect(0,0,0,0)!important;
+    height: 1px!important;
+    margin: -1px!important;
+    overflow: hidden!important;
+    position: absolute!important;
+    width: 1px!important;
+}
+.division_btn_box .btn_action {
+    align-items: center;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1;
+    position: relative;
+}
+.division_btn_box .btn_action:before {
+    background-color: rgba(34,34,34,.1);
+    bottom: 0;
+    content: "";
+    left: 55px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+.division_btn_box .title {
+    font-size: 18px;
+    letter-spacing: -.27px;
+    text-align: center;
+    width: 55px;
+}
+.division_btn_box .price {
+    line-height: 15px;
+    margin-left: 10px;
+    text-align: left;
+}
+.division_btn_box .amount {
+    display: block;
+    font-size: 0;
+}
+.division_btn_box .num, .division_btn_box .won {
+    display: inline-block;
+    font-weight: 700;
+    vertical-align: top;
+}
+.division_btn_box .num {
+    font-size: 15px;
+}
+address, em {
+    font-style: normal;
+}
+.division_btn_box .won {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.division_btn_box .num, .division_btn_box .won {
+    display: inline-block;
+    font-weight: 700;
+    vertical-align: top;
+}
+.division_btn_box .amount {
+    display: block;
+    font-size: 0;
+}
+.my_interest .division_btn_box .desc {
+    font-weight: 400;
+}
+.division_btn_box .desc {
+    color: hsla(0,0%,100%,.8);
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+}
+.division_btn_box .price {
+    line-height: 15px;
+    margin-left: 10px;
+    text-align: left;
+}
+.division_btn_box .btn_action {
+    align-items: center;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1;
+    position: relative;
+}
+.wish_buy .status_link {
+    color: rgba(34,34,34,.8);
+    display: inline-flex;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    margin-top: 6px;
+    padding: 0 3px;
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+}
+
+
+.pagination {
+    padding: 28px 0;
+}
+.pagination_box {
+    font-size: 0;
+    position: relative;
+    text-align: center;
+}
+.pagination_box.first .prev_btn_box, .pagination_box.last .next_btn_box {
+    display: none;
+}
+.prev_btn_box {
+    margin-right: 25px;
+}
+.next_btn_box, .prev_btn_box {
+    display: inline-block;
+    vertical-align: top;
+}
+.next_btn_box .btn_arr, .prev_btn_box .btn_arr {
+    height: 24px;
+    padding: 3px;
+    width: 24px;
+}
+[class*=arr-page-] {
+    height: 22px;
+    width: 18px;
+}
+.next_btn_box .btn_arr+.btn_arr, .prev_btn_box .btn_arr+.btn_arr {
+    margin-left: 5px;
+}
+.page_bind {
+    display: inline-block;
+    vertical-align: top;
+}
+.btn_page.active {
+    color: #222;
+    font-weight: 700;
+}
+.btn_page {
+    color: rgba(34,34,34,.5);
+    display: inline-block;
+    font-size: 16px;
+    padding: 0 8px;
+}
+.next_btn_box {
+    margin-left: 25px;
+}
+
+
+
+
+
+
+*, :after, :before {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+}
+</style>
 </head>
 <body>
 <div class="content_area my-page-content">
-    <div class="my_purchase">
-        <div class="v-portal" style="display: none;"></div>
-        <div class="content_title">
-            <div class="title">
-                <h3>관심 상품</h3>
-                <!---->
-            </div>
+    <div class="content_title border">
+        <div class="title">
+            <h3>관심 상품</h3>
             <!---->
         </div>
-        <div class="purchase_list_tab detail_tab">
-            <div class="tab_item total">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">전체</dt>
-                        <dd class="count">0</dd>
-                    </dl>
-                </a>
-            </div>
-            <div class="tab_item tab_on">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">구매 입찰</dt>
-                        <dd class="count">0</dd>
-                    </dl>
-                </a>
-            </div>
-            <div class="tab_item">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">진행 중</dt>
-                        <dd class="count">0</dd>
-                        <!---->
-                    </dl>
-                </a>
-            </div>
-            <div class="tab_item">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">종료</dt>
-                        <dd class="count">0</dd>
-                    </dl>
-                </a>
-            </div>
-        </div>
-        <div class="period_search">
-            <div class="period_month">
-                <ul class="month_list">
-                    <li class="month_item">
-                        <a href="#" class="month_link">최근 2개월</a>
-                    </li>
-                    <li class="month_item">
-                        <a href="#" class="month_link">4개월</a>
-                    </li>
-                    <li class="month_item">
-                        <a href="#" class="month_link">6개월</a>
-                    </li>
-                    <li class="month_item custom">
-                        <a href="#" class="month_link">기간조회</a>
-                    </li>
-                </ul>
-                <div class="period_option">
-                    <label class="selected_txt">"기간 선택"
-                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-arr-down-gray icon sprite-icons">
-                           <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-ico-arr-down-gray"></use>
-                        </svg>
-                    </label>
-                    <select>
-                        <option value="[object Object]"> 2023년 10월 </option>
-                        <option value="[object Object]"> 2023년 09월 </option>
-                        <option value="[object Object]"> 2023년 08월 </option>
-                        <option value="[object Object]"> 2023년 07월 </option>
-                        <option value="[object Object]"> 2023년 06월 </option>
-                        <option value="[object Object]"> 2023년 05월 </option>
-                    </select>
-                </div>
-            </div>
-            <!---->
-            <div class="period_calendar_wrapper" today="Fri Oct 06 2023 00:56:19 GMT+0900 (한국 표준시)">
-                <div class="period_calendar">
-                    <div class="calendar_wrap"><span>
-                            <div class="calendar">
-                                <input disabled="disabled" class="cal_input">
-                                <span class="cal_btn"></span>
-                            </div>
-                            <div data-v-4cb7b681="" class="vc-popover-content-wrapper">
+        <!---->
+    </div>  
+    <div class="my_interest">
+        <ul class="wish_list">
+            <li>
+                <div class="wish_item">
+                    <div class="wish_product">
+                        <div class="product_box">
+                            <div class="product" style="background-color: rgb(244, 244, 244);">
+                                <div class="product_inner_tag display_tag_item">
+                                    <!---->
+                                    <span> </span>
+                                </div>
+                                <picture class="picture product_img">
+                                    <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m_webp">
+                                    <source srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m">
+                                    <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m" loading="lazy" class="image full_width">
+                                </picture>
                                 <!---->
-                            </div>
-                        </span>
-                    </div>
-                    <span class="swung_dash">~</span>
-                    <div class="calendar_wrap">
-                        <span>
-                            <div class="calendar">
-                                <input class="cal_input">
-                                <span class="cal_btn"></span>
-                            </div>
-                            <div data-v-4cb7b681="" class="vc-popover-content-wrapper">
+                            <!---->
                             <!---->
                             </div>
-                        </span>
+                        </div>
+                        <div class="product_detail">
+                            <div class="brand_link">
+                                <a href="#" class="brand-text"> Nike </a>
+                                <!---->
+                            </div>
+                            <p class="name">Nike x Stussy T-Shirt White (DV1774-100)</p>
+                            <span class="size">M</span>
+                        </div>
+                        <div class="wish_buy">
+                            <div>
+                                <div class="division_btn_box lg">
+                                    <a href="#" disabled="disabled"class="blind btn_division">버튼</a>
+                                    <button class="btn_action" style="background-color: rgb(239, 98, 83);">
+                                        <strong class="title">구매</strong>
+                                        <div class="price">
+                                            <spanclass="amount">
+                                                <em class="num">133,000</em>
+                                                <span class="won">원</span>
+                                            </spanclass=>
+                                            <span class="desc">즉시 구매가</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <a href="#" class="status_link"> 삭제 </a>
+                            </div>
+                            <!---->
+                        </div>
                     </div>
                 </div>
-                <div class="period_btn_box">
-                    <button class="btn_search is_active">조회</button>
-                </div>
-            </div>
-        </div>
-        <ul class="search_info">
-            <li class="info_item">
-                <p>한 번에 조회 가능한 기간은 최대 6개월입니다.</p>
-            </li>
-            <li class="info_item">
-                <p>기간별 조회 결과는 입찰일 기준으로 노출됩니다.</p>
             </li>
         </ul>
-        <div class="purchase_list bidding bid">
-            <div class="purchase_head">
-                <div class="head_product">
-                    <a href="#" class="btn_filter"> 전체 
-                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-arr-dir-down-circle icon sprite-icons">
-                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-ico-arr-dir-down-circle" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-ico-arr-dir-down-circle">
-                            </use>
+        <div class="pagination">
+            <div class="pagination_box first last">
+                <div class="prev_btn_box">
+                    <a href="/saved?page=1" class="btn_arr" aria-label="첫 페이지">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
+                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-first" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-first"></use>
+                        </svg>
+                    </a>
+                    <a href="/saved?page=0" class="btn_arr" aria-label="이전 페이지">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
+                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-prev" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-prev"></use>
                         </svg>
                     </a>
                 </div>
-                <div class="head_status">
-                    <div class="status_box field_price">
-                        <a href="#" class="status_link">
-                            <span class="status_txt">구매 희망가</span>
-                        </a>
-                    </div>
-                    <div class="status_box field_date_purchased">
-                        <a href="#" class="status_link">
-                            <span class="status_txt">구매일</span>
-                        </a>
-                    </div>
-                    <div class="status_box field_date_paid">
-                        <a href="#" class="status_link">
-                            <span class="status_txt">정산일</span>
-                        </a>
-                    </div>
-                    <div class="status_box field_expires_at">
-                        <a href="#" class="status_link">
-                            <span class="status_txt">만료일</span>
-                        </a>
-                    </div>
-                    <div class="status_box field_status ascending">
-                        <a href="#"  class="status_link">
-                            <span class="status_txt">상태</span>
-                        </a>
-                    </div>
+                <div class="page_bind">
+                    <a href="/saved?page=1" class="btn_page active" aria-label="1페이지"> 1 </a>
+                </div>
+                <div class="next_btn_box">
+                    <a href="/saved?page=2" class="btn_arr" aria-label="다음 페이지">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
+                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-next" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-next"></use>
+                        </svg>
+                    </a>
+                    <a href="/saved?page=1" class="btn_arr" aria-label="마지막 페이지">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
+                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-last" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-page-last"></use>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            <div class="empty_area">
-                <p class="desc">구매 입찰 내역이 없습니다.</p>
-                <a href="#" class="btn outlinegrey small"> SHOP 바로가기 </a>
-            </div>
-            <div class="v-portal" style="display: none;">
-            </div>
         </div>
-        <!---->
     </div>
+    <!---->
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="../js/#"></script>

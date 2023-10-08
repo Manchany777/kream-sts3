@@ -20,7 +20,6 @@ body, div, dl,dt,dd,ul,ol,li, h1,h2,h3,h4,h5,h6, form, fieldset, p, button {
 }
 body, h1,h2,h3,h4, input, textarea, button, select, option {
 	font-family: "Pretendard Variable", Pretendard; 
-	/* font-family: "Pretendard Variable", Pretendard, '돋움', dotum, Helvetica, sans-serif; */
 	font-size: 15px;
 	color: #444;
 }
