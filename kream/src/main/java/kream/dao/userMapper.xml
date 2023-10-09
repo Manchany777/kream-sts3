@@ -6,4 +6,8 @@
 	<!-- <select id="userInfo" parameterType="java.lang.String" resultType="user">
  		select * from user where email=#{email}
  	</select> -->
+    
+    <select id="getUser" parameterType="map" resultType="user">
+    	SELECT email, pwd FROM user WHERE email = #{email} AND pwd = #{pwd}
+	</select>
 </mapper>

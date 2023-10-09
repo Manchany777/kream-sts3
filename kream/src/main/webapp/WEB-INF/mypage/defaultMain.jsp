@@ -649,7 +649,7 @@ button {
                 <div class="user_info">
                     <div class="info_box">
                         <strong class="name">2g22bbi1</strong>
-                        <p class="email">f*******i@gmail.com</p>
+                        <p class="email">${ userEmail }f*******i@gmail.com</p>
                         <a href="/my/profile-edit" class="btn btn outlinegrey small" type="button"> 프로필 관리 </a>
                         <a href="/social/users/@2g22bbi1" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                     </div>

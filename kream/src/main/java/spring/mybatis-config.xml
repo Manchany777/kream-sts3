@@ -5,7 +5,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-    	<!-- <typeAlias type="kream.bean.UserDTO" alias="user" /> -->
+    	<typeAlias type="kream.bean.UserDTO" alias="user" />
 		<typeAlias type="kream.bean.AdminProductDTO" alias="product"/>
 	</typeAliases>
 </configuration>

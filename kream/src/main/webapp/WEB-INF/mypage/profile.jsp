@@ -203,7 +203,7 @@ input, textarea {
 				<div class="unit">
 					<h5 class="h5_title">이메일 주소</h5>
 					<div class="unit_content">
-						<p class="desc email"> ${ email }</p>
+						<p class="desc email"> ${ userEmail }</p>
 						<button type="button" class="btn btn_modify outlinegrey small">변경</button>
 					</div>
 				</div>

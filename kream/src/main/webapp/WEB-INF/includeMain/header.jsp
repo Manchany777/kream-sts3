@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <link rel="stylesheet" href="/kream/css/header.css">
 <div style="clear:both; display:flex; justify-content:center; width:100vw;">
@@ -9,9 +11,20 @@
       <h1 class="logo"><a href="#">LOGO</a></h1>
       <div class="topnav">
          <span><a href="#">고객센터</a></span>
+      <c:if test="${ sessionScope.userEmail == null }">
+		 <span><a href="/kream/login">마이페이지</a></span>
+         <span><a href="/kream/login">관심상품</a></span>
+      </c:if>
+      <c:if test="${ sessionScope.userEmail != null}">
          <span><a href="/kream/my">마이페이지</a></span>
-         <span><a href="#">관심상품</a></span>
-         <span><a href="#">로그인</a></span>
+         <span><a href="/saved">관심상품</a></span>
+	  </c:if> 
+      <c:if test="${ sessionScope.userEmail == null }">
+         <span><a href="/kream/login">로그인</a></span>
+      </c:if>
+      <c:if test="${ sessionScope.userEmail != null}">
+			<h3><a href="/kream/logout">로그아웃</a></h3>
+	  </c:if>
          
          <div class="topnav2">
             <span><a href="/kream">HOME</a></span>

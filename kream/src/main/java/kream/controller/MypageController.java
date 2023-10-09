@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kream.bean.UserDTO;
 import kream.service.MypageService;
@@ -20,10 +21,16 @@ public class MypageController {
 	
 	// 내 정보
     @RequestMapping("/my")
-    public String my(HttpSession session) {
+    public String my(@SessionAttribute(name = "userEmail", required = false) String userEmail, 
+    				 Model model, HttpSession session) {
+    	
+		if (userEmail == null) {
+			return "redirect:/"; // 세션에 userEmail 속성이 없으면 메인 페이지로 리다이렉션
+		}
+    	 
     	// 이메일을 세션에 등록
-        String email = "user@example.com"; // 여기에 실제 이메일 값을 가져와야 합니다.
-        session.setAttribute("email", email);
+        //String email = "user@example.com"; // 여기에 실제 이메일 값을 가져와야 합니다.
+        model.addAttribute("userEmail", userEmail);
         return "/mypage/my";
     }
     
@@ -52,8 +59,9 @@ public class MypageController {
     @GetMapping("/my/profile")
     public String showProfile(HttpSession session, Model model) {
     	 // 세션에서 이메일 정보 읽어오기
-        String email = (String) session.getAttribute("email");
-        model.addAttribute("myContent", "This is the board page content.");
+    	//String email = (String) session.getAttribute("email");
+        String email = (String) session.getAttribute("userEmail");
+        //model.addAttribute("myContent", "This is the board page content.");
         return "/mypage/profile";
     }
     
