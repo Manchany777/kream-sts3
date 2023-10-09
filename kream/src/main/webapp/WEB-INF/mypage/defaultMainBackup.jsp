@@ -209,13 +209,12 @@
 }
 
 
-/* .purchase_list_tab.inventory {
+.purchase_list_tab.inventory {
     background-color: #f2f9f6;
-} */
+}
 
 .purchase_list_tab {
-	background-color: #f2f9f6;
-    /* background-color: #fafafa; */
+    background-color: #fafafa;
     border-radius: 12px;
     display: table;
     table-layout: fixed;
@@ -325,6 +324,13 @@
 }
 
 
+.purchase_list_tab {
+    background-color: #fafafa;
+    border-radius: 12px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
 .tab_item {
     display: table-cell;
     text-align: center;
@@ -681,63 +687,49 @@ button {
         </div>
         <div class="inventory_box">
             <div>
-	            <div class="my_home_title">
-	            <h3 class="title"> 구매 내역 </h3>
-	            <a href="/my/buying" class="btn_more">
-	                <span class="btn_txt">더보기</span>
-	                <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
-	                    <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray"></use>
-	                </svg>
-	            </a>
-	       		</div>
-		        <div class="recent_purchase">
-		            <div class="purchase_list_tab">
-		                <div class="tab_item total">
-		                    <a href="#" class="tab_link">
-		                        <dl class="tab_box">
-		                            <dt class="title">전체</dt>
-		                            <dd class="count">0</dd>
-		                        </dl>
-		                    </a>
-		                </div>
-		                <div class="tab_item tab_on">
-		                    <a href="#" class="tab_link">
-		                        <dl class="tab_box">
-		                            <dt class="title">입찰 중</dt>
-		                            <dd class="count">0</dd>
-		                        </dl>
-		                    </a>
-		                </div>
-		                <div class="tab_item">
-		                    <a href="#" class="tab_link">
-		                        <dl class="tab_box">
-		                            <dt class="title">진행 중</dt>
-		                            <dd class="count">0</dd>
-		                            <!---->
-		                        </dl>
-		                    </a>
-		                </div>
-		                <div class="tab_item">
-		                    <a href="#" class="tab_link">
-		                        <dl class="tab_box">
-		                            <dt class="title">종료</dt>
-		                            <dd class="count">0</dd>
-		                        </dl>
-		                    </a>
-		                </div>
-		            </div>
-		            <div>
-		                <div class="purchase_list all bid">
-		                    <!---->
-		                    <div class="empty_area">
-		                        <p class="desc">거래 내역이 없습니다.</p>
-		                        <!---->
-		                    </div>
-		                    <div class="v-portal" style="display: none;"></div>
-		                </div>
-		                <!---->
-		            </div>
-		        </div>
+                <div class="my_home_title">
+                    <h3 class="title"> 보관 판매 내역 </h3>
+                    <a href="/my/inventory" class="btn_more">
+                        <span class="btn_txt">더보기</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
+                            <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="purchase_list_tab inventory">
+                    <div class="tab_item total">
+                        <a href="#" class="tab_link">
+                            <dl class="tab_box">
+                                <dt class="title">발송요청</dt>
+                                <dd class="count">0</dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="tab_item">
+                        <a href="#" class="tab_link">
+                            <dl class="tab_box">
+                                <dt class="title">판매대기</dt>
+                                <dd class="count">0</dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="tab_item">
+                        <a href="#" class="tab_link">
+                            <dl class="tab_box">
+                                <dt class="title">판매 중</dt>
+                                <dd class="count">0</dd>
+                            </dl>
+                        </a>
+                    </div>
+                    <div class="tab_item">
+                        <a href="#" class="tab_link">
+                            <dl class="tab_box">
+                                <dt class="title">정산완료</dt>
+                                <dd class="count">0</dd>
+                            </dl>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="banner_inventory available">
                 <a href="#" class="banner_link">
@@ -747,6 +739,120 @@ button {
                     </div>
                 </a>
                 <!---->
+                <!---->
+            </div>
+        </div>
+        <div class="my_home_title">
+            <h3 class="title"> 구매 내역 </h3>
+            <a href="/my/buying" class="btn_more">
+                <span class="btn_txt">더보기</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
+                    <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="recent_purchase">
+            <div class="purchase_list_tab">
+                <div class="tab_item total">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">전체</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item tab_on">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">입찰 중</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">진행 중</dt>
+                            <dd class="count">0</dd>
+                            <!---->
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">종료</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="purchase_list all bid">
+                    <!---->
+                    <div class="empty_area">
+                        <p class="desc">거래 내역이 없습니다.</p>
+                        <!---->
+                    </div>
+                    <div class="v-portal" style="display: none;"></div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        <div class="my_home_title">
+            <h3 class="title"> 판매 내역 </h3>
+            <a href="/my/selling" class="btn_more">
+                <span class="btn_txt">더보기</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
+                    <use href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray" xlink:href="/_nuxt/b685a18dbba161b5c3cf613cb39a8946.svg#i-arr-right-gray"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="recent_purchase">
+            <div class="purchase_list_tab sell">
+                <div class="tab_item total">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">전체</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item tab_on">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">입찰 중</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">진행 중</dt>
+                            <dd class="count">0</dd>
+                            <!---->
+                        </dl>
+                    </a>
+                </div>
+                <div class="tab_item">
+                    <a href="#" class="tab_link">
+                        <dl class="tab_box">
+                            <dt class="title">종료</dt>
+                            <dd class="count">0</dd>
+                        </dl>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="purchase_list all ask">
+                    <!---->
+                    <div class="empty_area">
+                        <p class="desc">거래 내역이 없습니다.</p>
+                        <!---->
+                    </div>
+                    <div class="v-portal" style="display: none;"></div>
+                </div>
                 <!---->
             </div>
         </div>
