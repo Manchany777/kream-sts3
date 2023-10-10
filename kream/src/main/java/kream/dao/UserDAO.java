@@ -16,4 +16,7 @@ public interface UserDAO {
 	@Autowired
 	public UserDTO getUser(String email, String pwd);
 	//public UserDTO getUserById(String id);
+	
+	@Autowired
+	public UserDTO getUserInfo(String userEmail);
 }

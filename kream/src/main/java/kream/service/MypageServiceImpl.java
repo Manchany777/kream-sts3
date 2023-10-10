@@ -10,6 +10,13 @@ import kream.dao.UserDAO;
 public class MypageServiceImpl implements MypageService {
 	@Autowired // UserDAO와 의존관계 형성
 	private UserDAO userDAO;
+
+	@Override
+	public UserDTO getUserInfo(String userEmail) {
+		// UserDAOMybatis를 사용하여 사용자 정보 조회
+        UserDTO user = userDAO.getUserInfo(userEmail);
+        return user;
+	}
 	
 	/*
 	@Override

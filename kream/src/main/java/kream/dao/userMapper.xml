@@ -10,4 +10,8 @@
     <select id="getUser" parameterType="map" resultType="user">
     	SELECT email, pwd FROM user WHERE email = #{email} AND pwd = #{pwd}
 	</select>
+	
+	<select id="getUserInfo" parameterType="String" resultType="user">
+        SELECT * FROM user WHERE email = #{email}
+    </select>
 </mapper>

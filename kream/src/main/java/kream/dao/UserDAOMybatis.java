@@ -33,13 +33,20 @@ public class UserDAOMybatis implements UserDAO {
 	public UserDTO getUserById(String email) {
 		return sqlSession.selectOne("userSQL.getUserById", email);
 	}*/
-
+	
+	// 로그인
 	@Override
 	public UserDTO getUser(String email, String pwd) {
 		 Map<String, String> parameters = new HashMap<>();
 	        parameters.put("email", email);
 	        parameters.put("pwd", pwd);
 	        return sqlSession.selectOne("userSQL.getUser", parameters);
+	}
+	
+	// 회원정보 조회
+	@Override
+	public UserDTO getUserInfo(String userEmail) {
+		return sqlSession.selectOne("userSQL.getUserInfo", userEmail);
 	}
 
 }

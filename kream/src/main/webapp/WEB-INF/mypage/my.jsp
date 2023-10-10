@@ -25,28 +25,28 @@ header, footer {
 }
 </style>
 </head>
-
 <body>
 <div style="width: 100vw; justify-content: center; align-items: center;">
     <!-- header -->
-	<jsp:include page="../includeMain/header.jsp"/>
+	<jsp:include page="../includeMain/headerMy.jsp"/>
 	<br>
     
     <content>
-    <div style="display:flex; justify-content:center; width:100vw;">
-    <main style="width:1920px; min-height: 220px;">
-	    <div style="float: left; width: 320px; padding-left: 200px; padding-bottom: 150px; padding-top: 15px !important;">
-	        <jsp:include page="leftSideMenu.jsp" />
+	    <div id="container" style="display: flex; justify-content:center; margin-top:10px;">
+	    <%-- <div style="display:flex; justify-content:center; width:100vw;"> --%>
+		    <main style="width:1920px; min-height: 220px; justify-content:center;">
+			    <div class="nav" style="float: left; width: 320px; padding-left: 200px; padding-bottom: 150px; padding-top: 15px !important;">
+			        <jsp:include page="leftSideMenu.jsp" />
+			    </div>
+				<%-- width: 1150px;  --%>
+			    <div class="content" style="float: left; width: 850px; font-weight:bold; padding-left: 50px; padding-top: 5px !important;">
+			        <div id="myContent">
+			        <!-- 비동기 로드 -->
+			            <jsp:include page="defaultMain.jsp" />
+			        </div>
+			    </div>
+			</main>
 	    </div>
-	
-	    <div style="float: left; width: 736px; font-weight:bold; padding-left: 50px; padding-top: 5px !important;">
-	        <div id="myContent">
-	        <!-- 비동기 로드 -->
-	            <jsp:include page="defaultMain.jsp" />
-	        </div>
-	    </div>
-	</main>
-    </div>
     </content>
     
 	<br>
@@ -54,5 +54,8 @@ header, footer {
 	<jsp:include page="../includeMain/footer.jsp"/>
 
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src="/kream/js/mypage/profile.js"></script>
+
 </body>
 </html>

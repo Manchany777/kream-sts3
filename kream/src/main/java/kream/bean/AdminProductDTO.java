@@ -20,13 +20,14 @@ public class AdminProductDTO {
 	private int productId; // 자동 생성되는 값
     private String category;
     private String category2;
+    private String gender;
     private String brand;
     private String productName; //product=>productName으로 변경.
-    private String product_explain;
-    private String product_detail;
+    private String productExplain;
+    private String productDetail;
     private int price;
     private int stock;
-    private String product_color;
+    private String productColor;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
     private String size;

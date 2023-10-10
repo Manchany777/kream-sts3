@@ -77,7 +77,7 @@
     <div class="myContainer">
         <ul class="myPageInfo">
         	<strong class="myInfo">내 정보</strong>
-            <li><a href="${pageContext.request.contextPath}/my/profile">로그인 정보</a></li>
+            <li><a id="loginInfo" href="${pageContext.request.contextPath}/my/profile">로그인 정보</a></li>
             <li><a href="${pageContext.request.contextPath}/my/profile-edit">프로필 관리</a></li>
             <li><a href="${pageContext.request.contextPath}/my/address">주소록</a></li>
             <li><a href="${pageContext.request.contextPath}/my/payment">결제 정보</a></li>
@@ -103,6 +103,7 @@
         });
     });
 </script>--%>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script>
     $(document).ready(function() {
         // 초기에 defaultMain.jsp를 로드하도록 설정합니다.
