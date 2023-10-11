@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +26,7 @@
         </div>
         <!---->
     </div>  
+<c:forEach var="product" items="${wishList}">
     <div class="my_interest">
         <ul class="wish_list">
             <li>
@@ -38,7 +41,7 @@
                                 <picture class="picture product_img">
                                     <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m_webp">
                                     <source srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m">
-                                    <img alt="상품 이미지" src="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m" loading="lazy" class="image full_width">
+                                    <img alt="상품 이미지" src="${product.productImg1}" loading="lazy" class="image full_width">
                                 </picture>
                                 <!---->
                             <!---->
@@ -47,11 +50,11 @@
                         </div>
                         <div class="product_detail">
                             <div class="brand_link">
-                                <a href="#" class="brand-text"> Nike </a>
+                                <a href="#" class="brand-text"> ${product.brand} </a>
                                 <!---->
                             </div>
-                            <p class="name">Nike x Stussy T-Shirt White (DV1774-100)</p>
-                            <span class="size">M</span>
+                            <p class="name">${product.productExplain}</p>
+                            <span class="size">${product.size}</span>
                         </div>
                         <div class="wish_buy">
                             <div>
@@ -61,7 +64,8 @@
                                         <strong class="title">구매</strong>
                                         <div class="price">
                                             <spanclass="amount">
-                                                <em class="num">133,000</em>
+                                            	<fmt:formatNumber type="number" value="${product.price}" pattern="#,###" var="formattedPrice"/>
+                                                <em class="num">${formattedPrice}</em>
                                                 <span class="won">원</span>
                                             </spanclass=>
                                             <span class="desc">즉시 구매가</span>
@@ -76,6 +80,7 @@
                 </div>
             </li>
         </ul>
+</c:forEach>
         <div class="pagination">
             <div class="pagination_box first last">
                 <div class="prev_btn_box">

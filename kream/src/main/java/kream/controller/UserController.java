@@ -1,8 +1,11 @@
 package kream.controller;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kream.service.LoginService;
+import kream.service.MypageService;
 
 /**
  * Handles requests for the application home page.
@@ -31,6 +35,7 @@ import kream.service.LoginService;
 public class UserController {
 	@Autowired
 	private LoginService loginService;
+	private MypageService mypageService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
@@ -97,4 +102,13 @@ public class UserController {
         model.addAttribute("userEmail", userEmail);
         return "shopMain";
     }
+    /*
+    // 관심상품 불러오기
+    @GetMapping("/saved")
+    public String showWishList(Model model, Principal principal) {
+        String email = principal.getName();
+        List<Map<String, Object>> wishList = mypageService.getWishList(email);
+        model.addAttribute("wishList", wishList);
+        return "/user/saved"; // wishlist.html 또는 원하는 뷰 페이지 이름으로 수정
+    }*/
 }

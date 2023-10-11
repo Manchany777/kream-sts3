@@ -25,7 +25,7 @@
         <div class="user_profile">
             <input type="file" accept="image/jpeg,image/png" hidden="hidden">
             <div class="profile_thumb">
-                <img src="/_nuxt/img/blank_profile.4347742.png" alt="사용자 이미지" class="thumb_img">
+                <img src="/kream/img/blank_profile.png" alt="사용자 이미지" class="thumb_img">
             </div>
             <div class="profile_detail">
                 <strong class="name">${user.nickname}</strong>

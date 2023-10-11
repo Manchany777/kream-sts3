@@ -52,6 +52,11 @@
         font-size: 1.3em;
         /* color: #888a83; */
     }
+    .sidebar a.active {
+	    font-weight: bold;
+	    color: #000000;
+	    /* font-size: 1.1em; */
+	}
     .sidebar a:active {
         text-decoration:none;
         color: #888a83;
@@ -81,8 +86,10 @@
             <li><a href="${pageContext.request.contextPath}/my/profile-edit">프로필 관리</a></li>
             <li><a href="${pageContext.request.contextPath}/my/address">주소록</a></li>
             <li><a href="${pageContext.request.contextPath}/my/payment">결제 정보</a></li>
-            <li><a href="${pageContext.request.contextPath}/my/board">문의 내역글 조회</a></li>
-            <li><a href="${pageContext.request.contextPath}/my/comment">후기 댓글 조회</a></li>
+            <li>문의 내역글 조회</li>
+            <li>후기 댓글 조회</li>
+           <%--  <li><a href="${pageContext.request.contextPath}/my/board">문의 내역글 조회</a></li>
+            <li><a href="${pageContext.request.contextPath}/my/comment">후기 댓글 조회</a></li> --%>
         </ul>
     </div>
 </nav>
@@ -117,6 +124,12 @@
 
         $(".sidebar a").on("click", function(e) {
             e.preventDefault();
+            
+         	// 다른 활성화된 메뉴의 active 클래스 제거
+            $(".sidebar a").removeClass("active");
+            // 현재 클릭한 메뉴에 active 클래스 추가
+            $(this).addClass("active");
+            
             var url = $(this).attr("href");
             $.ajax({
                 url: url,

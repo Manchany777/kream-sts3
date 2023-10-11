@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +26,7 @@ public class AdminProductDTO {
     private String productName; //product=>productName으로 변경.
     private String productExplain;
     private String productDetail;
+    @NumberFormat(pattern = "#,###")
     private int price;
     private int stock;
     private String productColor;

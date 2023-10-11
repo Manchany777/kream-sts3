@@ -25,55 +25,55 @@
 		<div class="profile_info">
 			<div class="profile_group_email">
 				<h4 class="group_title">내 계정</h4>
-				<div class="unit">
-					<h5 class="h5_title">이메일 주소</h5>
-					<div class="unit_content">
-						<p id="emailInfo" class="desc email">${maskedEmail}</p>
-						<input type="text" id="maskingEmail" value="${user.email}" hidden>
-						<button type="button" class="btn btn_modify outlinegrey small">변경</button>
-					</div>
+				<div id="beforeChange" class="unit">
+				    <h5 class="h5_title">이메일 주소</h5>
+				    <div class="unit_content">
+				        <p id="emailInfo" class="desc email">${maskedEmail}</p>
+				        <button type="button" id="changeButton" class="btn btn_modify outlinegrey small">변경</button>
+				    </div>
 				</div>
-				<%-- <div class="modify" style="display: none;">
-					<div class="input_box">
-						<h6 class="input_title">이메일 주소 변경</h6>
-						<div class=input_item>
-							<input type="email" autocomplete="off" class="input_txt" placeholder="f*******i@gmail.com">
-						</div>
-						<p class="input_error">이미 사용 중인 이메일입니다.</p>
-					</div>
-					<div class="modity_btn_box">
-						<button type="button" class="btn_outlinegrey_medium">취소</button>
-						<button type="button" slot="button" class="btn_solid_medium_disabled" disabled="disabled">인증 메일 발송</button>
-					</div>
-				</div> --%>
-				<div class="unit">
+				<div class="modify" id="modifySection" style="display: none;">
+				    <div class="input_box">
+				        <h6 class="input_title">이메일 주소 변경</h6>
+				        <div class="input_item">
+				            <input type="email" autocomplete="off" class="input_txt" placeholder="${user.email}" value="${user.email}" id="newEmailInput">
+				        </div>
+				        <p class="input_error" id="emailError"></p>
+				    </div>
+				    <div class="modify_btn_box">
+				        <button type="button" slot="button" id="cancelButton" class="btn outlinegrey medium">취소</button>
+				        <button type="button" slot="button" id="saveButton" class="btn solid medium">저장</button>
+				    </div>
+				</div>
+
+				<div id="beforePwdChange" class="unit">
 					<h5 class="h5_title">비밀번호</h5>
 					<div class="unit_content">
-						<p class="desc password">${maskedPassword}</p>
-						<button type="button" class="btn btn_modify outlinegrey small">변경</button>
+						<p class="desc password">${user.pwd}</p>
+						<button type="button" id="changePwdButton" class="btn btn_modify outlinegrey small">변경</button>
 					</div>
 				</div>
-				<%--<div class="modify" style="display: none;">
+				<div class="modify" id="modifyPwdSection" style="display: none;">
 					<h5 class="h5_title">비밀번호 변경</h5>
 					<div class="input_box">
 						<h6 class="input_title">이전 비밀번호</h6>
 						<div class="input_item">
-							<input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" value class="input_txt">
+							<input type="password" id="oldPwdInput" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" value="${user.pwd}" class="input_txt">
 						</div>
-						<p class="input_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
+						<p class="input_error"></p>
 					</div>
 					<div class="input_box">
 						<h6 class="input_title">새 비밀번호</h6>
 						<div class="input_item">
-							<input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" value class="input_txt">
+							<input type="password" id="newPwdInput" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" value="" class="input_txt">
 						</div>
-						<p class="input_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
+						<p class="input_error" id="pwdError"></p>
 					</div>
 					<div class="modify_btn_box">
-						<button type="button" slot="button" class="btn_outlinegrey_medium">취소</button>
-						<button type="button" slot="button" class="btn_solid_medium_disabled" disabled="disabled">저장</button>
+						<button type="button" slot="button" id="cancelPwdButton" class="btn outlinegrey medium">취소</button>
+						<button type="button" slot="button" id="savePwdButton" class="btn solid medium">저장</button>
 					</div>
-				</div> --%>
+				</div>
 			</div>
 			<div class="profile_group">
 			<div class="profile_info">
@@ -82,7 +82,7 @@
 					<h5 class="h5_title">휴대폰 번호</h5>
 					<div class="unit_content">
 						<p class="desc">${maskedPhoneNumber}</p>
-						<button type="button" class="btn btn_modify outlinegrey small">변경</button>
+						<button type="button" id="changePhoneNumberButton" class="btn btn_modify outlinegrey small">변경</button>
 					</div>
 				</div>
 				<div class="unit">
@@ -176,7 +176,10 @@
 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="/kream/js/mypage/profile.js"></script>
+<script>
+    var oldEmail = "${user.email}"; // userDTO.email은 기존 이메일 값이 들어있는 변수명입니다.
+</script>
+<script type="text/javascript" src="/kream/js/mypage/profile.js"></script>
 <script type="text/javascript">
 $.ajax({
     type: "GET",

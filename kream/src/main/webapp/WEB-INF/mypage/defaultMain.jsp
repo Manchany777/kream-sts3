@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +24,13 @@
         <div class="user_membership">
             <div class="user_detail">
                 <div class="user_thumb">
-                    <img src="/_nuxt/img/blank_profile.4347742.png" alt="사용자 이미지" class="thumb_img">
+                    <img src="/kream/img/blank_profile.png" alt="사용자 이미지" class="thumb_img">
                 </div>
                 <div class="user_info">
                     <div class="info_box">
-                        <strong class="name">2g22bbi1</strong>
-                        <p class="email">${ userEmail }  ${user.email} ${user.userName } f*******i@gmail.com</p>
-                        <a href="/my/profile-edit" class="btn btn outlinegrey small" type="button"> 프로필 관리 </a>
+                        <strong class="name">${user.nickname}</strong>
+                        <p class="email"> ${maskedEmail} </p>
+                        <a href="${pageContext.request.contextPath}/my/profile-edit" id="goProfileEdit" class="btn btn outlinegrey small" type="button"> 프로필 관리 </a>
                         <a href="/social/users/@2g22bbi1" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                     </div>
                 </div>
@@ -36,21 +38,21 @@
             <div class="membership-menu">
                 <a href="/my/point" class="menu-item">
                     <div class="icon-wrap">
-                        <img src="/_nuxt/img/ico-my-shortcut-point.bb8c04e.svg" name="ico-my-shortcut-point" width="28" height="28" class="icon">
+                        <img src="/kream/img/ico-my-shortcut-point.png" name="ico-my-shortcut-point" width="28" height="28" class="icon">
                         <!---->
                     </div>
                     <span class="name">0P</span>
                 </a>
                 <a href="/my/coupon" class="menu-item">
                     <div class="icon-wrap">
-                        <img src="/_nuxt/img/ico-my-shortcut-coupon.b9a7693.svg" name="ico-my-shortcut-coupon" width="28" height="28" class="icon">
+                        <img src="/kream/img/ico-my-shortcut-coupon.png" name="ico-my-shortcut-coupon" width="28" height="28" class="icon">
                         <!---->
                     </div>
                     <span class="name">쿠폰 0</span>
                 </a>
                 <a href="/notice" class="menu-item">
                     <div class="icon-wrap">
-                        <img src="/_nuxt/img/ico-my-shortcut-announce.a1e286c.svg" name="ico-my-shortcut-announce" width="28" height="28" class="icon">
+                        <img src="/kream/img/ico-my-shortcut-announce.png" name="ico-my-shortcut-announce" width="28" height="28" class="icon">
                         <span class="badge"></span>
                     </div>
                     <span class="name">공지사항</span>
@@ -108,7 +110,7 @@
 		                <div class="purchase_list all bid">
 		                    <!---->
 		                    <div class="empty_area">
-		                        <p class="desc">거래 내역이 없습니다.</p>
+		                        <p class="desc">구매 내역이 없습니다.</p>
 		                        <!---->
 		                    </div>
 		                    <div class="v-portal" style="display: none;"></div>
@@ -139,6 +141,7 @@
         </div>
         <div class="interest_product">
             <div class="product_list">
+<c:forEach var="product" items="${wishList}">
                 <div class="product_item">
                     <a href="/products/98976" class="item_inner">
                         <div class="thumb_box">
@@ -150,7 +153,7 @@
                                 <picture class="picture product_img">
                                     <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m_webp">
                                     <source srcset="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m">
-                                    <img alt="나이키 x 스투시 티셔츠 화이트 (DV1774-100)" src="https://kream-phinf.pstatic.net/MjAyMzAyMDhfNjEg/MDAxNjc1ODE5MzcyNDI4.38UoFBhW_goBxetDyjyjQqINM90ttFDUI6JLelGhXCcg.LPo08HQEY4pZSn8G1EcChycWDULWcIiglupo81ymRgUg.JPEG/a_f794de55b7df4a4bb13164e904d26f6c.jpg?type=m" loading="lazy" class="image full_width">
+                                    <img alt="${product.productExplain}" src="${product.productImg1}" loading="lazy" class="image full_width">
                                 </picture>
                                 <!---->
                                 <!---->
@@ -166,10 +169,10 @@
                         <div class="info_box">
                             <div class="brand">
                                 <!---->
-                                <p class="brand-text"> Nike </p>
+                                <p class="brand-text">${product.brand}</p>
                                 <!---->
                             </div>
-                            <p class="name">Nike x Stussy T-Shirt White (DV1774-100)</p>
+                            <p class="name">${product.productExplain}</p>
                             <div class="tags">
                                 <div class="tag display_tag_item" style="background-color: rgb(242, 249, 246); color: rgb(49, 180, 110);">
                                     <div class="tag_icon">
@@ -181,7 +184,8 @@
                             <div class="price">
                                 <div class="amount lg">
                                     <!---->
-                                    <em class="num">134,000원 </em>
+                                    <fmt:formatNumber type="number" value="${product.price}" pattern="#,###" var="formattedPrice"/>
+                                    <em class="num">${formattedPrice}원 </em>
                                 </div>
                                 <div class="desc">
                                     <p>즉시 구매가</p>
@@ -190,6 +194,7 @@
                         </div>
                     </a>
                 </div>
+</c:forEach>
             </div>
             <!---->
         </div>
@@ -209,6 +214,23 @@ $.ajax({
         console.log("세션 값: " + userEmail);
     }
 });*/
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    // 프로필 관리 버튼 클릭 이벤트 처리
+    $("#goProfileEdit").on("click", function(e) {
+        e.preventDefault(); // 기본 이벤트 방지
+
+        var url = $(this).attr("href"); // 클릭한 링크의 주소를 가져옴
+        $.ajax({
+            url: url, // 프로필 관리 페이지의 주소로 설정
+            method: "GET",
+            success: function(response) {
+                $("#myContent").html(response); // content 영역에 불러온 페이지 내용을 업데이트
+            }
+        });
+    });
+});
 </script>
 </body>
 </html>

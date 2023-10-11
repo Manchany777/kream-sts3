@@ -14,4 +14,34 @@
 	<select id="getUserInfo" parameterType="String" resultType="user">
         SELECT * FROM user WHERE email = #{email}
     </select>
+    
+    <select id="isExistId" parameterType="String" resultType="user">
+ 		select * from user where email=#{email}
+ 	</select>
+ 	
+ 	<update id="updateEmail" parameterType="java.util.Map">
+    	UPDATE user SET email = #{newEmail} WHERE email = #{oldEmail}
+	</update>
+	
+    <select id="verifyPassword" parameterType="java.util.Map" resultType="int">
+        SELECT COUNT(*) FROM user WHERE email = #{email} AND pwd = #{oldPassword}
+    </select>
+	
+	<update id="updatePassword" parameterType="java.util.Map" statementType="PREPARED">
+	    <![CDATA[
+	    UPDATE user SET pwd = #{newPassword} WHERE email = #{email}
+	    ]]>
+	</update>
+	
+	<!-- 사용자의 관심 상품을 추가하는 쿼리 -->
+    <!-- <insert id="addWishList" parameterType="map">
+        INSERT INTO wishLists (productId, email)
+        VALUES (#{productId}, #{email});
+    </insert> -->
+
+    <!-- 사용자의 관심 상품 목록을 가져오는 쿼리 -->
+    <select id="getWishList" parameterType="string" resultType="map">
+        SELECT * FROM product
+        WHERE productId IN (SELECT productId FROM wishLists WHERE email = #{email});
+    </select>
 </mapper>

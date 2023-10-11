@@ -18,7 +18,7 @@ body {
     margin: 0;
 }
 header, footer {
-    background-color: #f1f1f1; /* 배경색 설정 (선택 사항) */
+    /* background-color: #f1f1f1; */ /* 배경색 설정 (선택 사항) */
 }
 .footer_hr, .header_hr {
     width: 100%;
@@ -55,7 +55,6 @@ header, footer {
 
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script type="text/javascript" src="/kream/js/mypage/profile.js"></script>
 
 </body>
 </html>
